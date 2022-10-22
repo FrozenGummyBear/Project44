@@ -1,57 +1,47 @@
 {
-  "name": "pewpog-backend",
-  "version": "1.0.0",
-  "description": "game",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hayelom123/pewpog-backend.git"
-  },
-  "author": "hayelom and henok",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hayelom123/pewpog-backend/issues"
-  },
-  "homepage": "https://github.com/hayelom123/pewpog-backend#readme",
+  "name": "tournament",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "app-root-path": "^3.0.0",
+    "@ckeditor/ckeditor5-build-classic": "^35.0.1",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "axios": "^0.27.2",
-    "bcryptjs": "^2.4.3",
-    "compression": "^1.7.4",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "dotenv": "^16.0.0",
-    "ejs": "^3.1.8",
-    "express": "^4.17.3",
-    "express-async-errors": "^3.1.1",
-    "express-mongo-sanitize": "^2.2.0",
-    "express-rate-limit": "^6.4.0",
-    "googleapis": "^100.0.0",
-    "helmet": "^5.0.2",
-    "http-status": "^1.5.1",
-    "joi": "^17.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.3",
-    "mongoose": "^6.3.1",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.4",
-    "node-cron": "^3.0.1",
-    "nodemailer": "^6.7.5",
-    "nodemailer-smtp-transport": "^2.7.4",
-    "passport": "^0.5.2",
-    "passport-jwt": "^4.0.0",
-    "paypal-rest-sdk": "^1.8.1",
-    "pdf-parse": "^1.1.1",
-    "peer": "^0.6.1",
-    "socket.io": "^4.5.1",
-    "stripe": "^8.222.0",
-    "winston": "^3.7.2",
-    "winston-mongodb": "^5.0.7",
-    "xlsx": "^0.18.5",
-    "xss-clean": "^0.1.1"
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

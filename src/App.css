@@ -1,0 +1,141 @@
+/* Reset Css */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Font size */
+html {
+  font-size: 62.5%;
+}
+
+/* Fontsize body */
+/* 
+  ####Font families
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Prata', serif;
+*/
+body {
+  font-size: 1.4rem;
+  font-family: Poppins;
+
+}
+
+/* utilities */
+.bg-dark-gray {
+  background-color: #0d0d0d !important;
+}
+
+.bg-transparent {
+  background-color: #0000 !important;
+}
+
+.pos-rel {
+  position: relative !important;
+}
+
+/* btn styles */
+.btn {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  font-family: Poppins;
+}
+
+.st_btn_primary {
+  background: #000000c7 !important;
+  border: 0 !important;
+  outline: none;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0;
+  font-size: 1.4rem;
+  padding: 1rem 2.5rem;
+  font-weight: 500;
+}
+
+.st_btn_primary:focus, .st_btn_primary:active, .st_btn_primary:hover {
+  text-decoration: underline;
+}
+
+.st_btn_secondary {
+  background: #00000000 !important;
+  border: 1px solid #fff !important;
+  outline: none;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+}
+
+.st_btn_secondary:focus, .st_btn_primary:active, .st_btn_primary:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width:600px){
+  .desktop{
+    display:none!important;
+  }
+  .cust-modal{
+    max-width:90vw!important;
+top:100%;
+  }
+  .cust-modal input{
+    max-width:80vw!important;
+  }
+  .cust-modal select{
+    max-width:80vw!important;
+  }
+  .cust-modal textarea{
+    max-width:80vw!important;
+  }
+  .cust-modal div{
+    max-width:80vw!important;
+  
+  }
+  .input{
+    height:30px!important;
+    min-height: 30px!important;
+  }
+  .title{
+    font-size: 18px!important;;
+  }
+  .sub-title{
+    font-size: 12px!important;
+  }
+  .close{
+    right:20px!important;
+    color:black!important;
+    top:20px!important;
+  }
+}
+
+
+.css-f6zvhu{
+  padding:32px 24px!important;
+  width:fit-content!important;
+}
+
+.valid__button {
+  background-color: #2865b3!important;
+  color:#fff!important;
+}
+
+
+.profile-image{
+  width:100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.edit-link, .edit__link{
+  cursor: pointer;
+}
