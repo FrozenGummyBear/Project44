@@ -1,0 +1,95 @@
+const httpStatus = require("http-status");
+const catchAsync = require("../utils/catchAsync");
+const {
+  authService,
+  userService,
+  tokenService,
+  emailService,
+} = require("../services");
+
+const register = catchAsync(async (req, res) => {
+  const user = await userService.createUser(req.body);
+  user["password"] = "";
+  const tokens = await tokenService.generateAuthTokens(user);
+  res.status(httpStatus.CREATED).send({ user, tokens });
+});
+
+const login = catchAsync(async (req, res) => {
+  const { username, password } = req.body;
+  // const user = await authService.loginUserWithEmailAndPassword(email, password);
+  const user = await authService.loginUserWithUserNameAndPassword(
+    username,
+    password
+  );
+
+  const tokens = await tokenService.generateAuthTokens(user);
+  user.password = "";
+
+  res.send({ _id: user["_id"], role: user["role"], tokens });
+});
+
+const logout = catchAsync(async (req, res) => {
+  await authService.logout(req.body.refreshToken);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+const refreshTokens = catchAsync(async (req, res) => {
+  const tokens = await authService.refreshAuth(req.body.refreshToken);
+
+  res.send({ ...tokens });
+});
+
+const forgotPassword = catchAsync(async (req, res) => {
+  const resetPasswordToken = await tokenService.generateResetPasswordToken(
+    req.body.email
+  );
+  await emailService.sendResetPasswordEmail(req.body.email, resetPasswordToken);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+const resetPasswordPage = catchAsync(async (req, res) => {
+  console.log("it was hererrrrrrrrrrrrrr", req.query);
+  res.render("rest-password", {
+    token: req.query["token"],
+  });
+});
+const resetPassword = catchAsync(async (req, res) => {
+  console.log("hererrererrrr:", req.body.password, req.query.token);
+  await authService.resetPassword(req.query.token, req.body.password);
+  // res.status(httpStatus.NO_CONTENT).render('<h1>succes fully changed</h1>');
+  res.status(200).send({ succes: true });
+});
+
+const sendVerificationEmail = catchAsync(async (req, res) => {
+  const { verifyEmailToken, verficationCode } =
+    await tokenService.generateVerifyEmailToken(req.user);
+  await emailService.sendVerificationEmail(
+    req.user.email,
+    verifyEmailToken,
+    verficationCode
+  );
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+const verifyEmail = catchAsync(async (req, res) => {
+  await authService.verifyEmail(req.query.token, req.body.code);
+  // res.status(httpStatus.NO_CONTENT).send();
+  res.send({ verified: true });
+});
+
+module.exports = {
+  register,
+  login,
+  logout,
+  refreshTokens,
+  forgotPassword,
+  resetPasswordPage,
+  resetPassword,
+  sendVerificationEmail,
+  verifyEmail,
+};
+
+function withoutProperty(obj, property) {
+  const { [property]: unused, ...rest } = obj;
+  return rest;
+}

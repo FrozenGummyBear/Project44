@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-flow: column;
+  min-height: 100vh;
+}
+h1 {
+  padding: 20px;
+}
+form {
+  max-width: 500px;
+  width: 80%;
+  background-color: #000;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 5px;
+}
+form input {
+  padding: 10px;
+  font-size: 1.2rem;
+  outline: none;
+  border-radius: 5px;
+}
+form input[type="submit"] {
+  margin-top: 10px;
+  background-color: green;
+  border-style: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  width: 100px;
+  align-self: flex-end;
+}
+#err {
+  color: red;
+}
